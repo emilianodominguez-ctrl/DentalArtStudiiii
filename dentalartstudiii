@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Art Studio | Tecnología Láser & Estética</title>
+    <title>Dental Art Studio | Tecnología & Estética Dental</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,147 +13,176 @@
             --primary: #0a192f;
             --accent: #00d2ff;
             --white: #ffffff;
-            --chat-bg: #e5ddd5;
+            --light-gray: #f8fafc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; color: var(--primary); background-color: var(--white); }
+        body { font-family: 'Montserrat', sans-serif; color: var(--primary); line-height: 1.6; }
 
-        /* Estilos Base */
-        nav { background: rgba(255, 255, 255, 0.95); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
-        .logo { display: flex; align-items: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
-        .logo img { height: 45px; margin-right: 10px; }
+        /* Navegación */
+        nav { 
+            background: white; padding: 15px 5%; display: flex; justify-content: space-between; 
+            align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { display: flex; align-items: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: bold; }
+        .logo i { color: var(--accent); margin-right: 10px; font-size: 1.5rem; }
 
-        .hero { height: 80vh; background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://lh5.googleusercontent.com/p/AF1QipN3-v4l-mU8y-C_v_H9Yk-M3D8_B1v-Z_K_Q-z=w1000'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
+        /* Hero */
+        .hero { 
+            height: 80vh; 
+            background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), 
+                        url('https://images.unsplash.com/photo-1629909608135-ca40a00298a6?auto=format&fit=crop&q=80&w=1500'); 
+            background-size: cover; background-position: center; 
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding-top: 60px;
+        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; letter-spacing: 1px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; max-width: 700px; }
 
         /* Sección Tecnología */
-        .tech-box { padding: 80px 10%; background: var(--primary); color: white; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .tech-box h2 { color: var(--accent); font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 20px; }
-        .tech-box img { width: 100%; border-radius: 15px; border: 2px solid var(--accent); }
-
-        /* CHATBOT ELEGANTE */
-        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 320px; background: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2000; animation: slideUp 0.3s ease; }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        .chat-header { background: var(--primary); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-body { height: 300px; padding: 15px; overflow-y: auto; background: #f0f2f5; display: flex; flex-direction: column; gap: 10px; }
-        .msg { padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; max-width: 85%; }
-        .msg.bot { background: white; align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .chat-options { padding: 10px; display: flex; flex-direction: column; gap: 5px; }
-        .opt-btn { background: var(--accent); color: white; border: none; padding: 8px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; text-align: left; transition: 0.2s; }
-        .opt-btn:hover { background: var(--primary); }
-
-        /* WhatsApp Button */
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; text-decoration: none; }
+        .tech { padding: 100px 10%; background: var(--primary); color: white; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+        .tech-text { flex: 1; min-width: 300px; }
+        .tech-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent); margin-bottom: 25px; }
+        .tech-img { flex: 1; min-width: 300px; }
+        .tech-img img { width: 100%; border-radius: 20px; border: 2px solid var(--accent); box-shadow: 0 0 25px rgba(0, 210, 255, 0.3); }
 
         /* Formulario */
-        .form-section { padding: 80px 10%; background: #f8fafc; }
-        .form-card { max-width: 600px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
-        .btn-send { width: 100%; background: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .contact-container { padding: 100px 10%; background: var(--light-gray); display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .card { background: white; padding: 40px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        input, select, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 12px; font-family: inherit; outline: none; }
+        input:focus { border-color: var(--accent); }
+        .btn-submit { background: var(--accent); color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .btn-submit:hover { background: var(--primary); transform: translateY(-3px); }
 
-        @media (max-width: 768px) { .tech-box { grid-template-columns: 1fr; } .hero h1 { font-size: 2.2rem; } }
+        /* CHATBOT */
+        #chatbot { 
+            position: fixed; bottom: 110px; right: 30px; width: 320px; background: white; 
+            border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+            display: none; flex-direction: column; overflow: hidden; z-index: 2001; animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .chat-header { background: var(--primary); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-content { height: 280px; padding: 20px; overflow-y: auto; background: #f1f5f9; font-size: 0.95rem; }
+        .bot-msg { background: white; padding: 12px 15px; border-radius: 15px; border-bottom-left-radius: 2px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #334155; }
+        .chat-footer { padding: 15px; display: flex; flex-direction: column; gap: 8px; background: white; }
+        .opt { background: #e2e8f0; color: var(--primary); border: none; padding: 10px 15px; border-radius: 10px; cursor: pointer; text-align: left; font-size: 0.85rem; font-weight: 600; transition: 0.2s; }
+        .opt:hover { background: var(--accent); color: white; }
+
+        /* Botón WhatsApp */
+        .wa-btn { 
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; 
+            width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; 
+            align-items: center; font-size: 35px; z-index: 2000; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); 
+            cursor: pointer; transition: 0.3s; 
+        }
+        .wa-btn:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .contact-container, .tech { grid-template-columns: 1fr; padding: 60px 5%; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">
-            <img src="https://lh5.googleusercontent.com/p/AF1QipN3-v4l-mU8y-C_v_H9Yk-M3D8_B1v-Z_K_Q-z=w200" alt="Dental Art Studio">
-            DENTAL ART STUDIO
-        </div>
+        <div class="logo"><i class="fas fa-tooth"></i> DENTAL ART STUDIO</div>
+        <div style="font-weight: 700; font-size: 0.9rem;">TLALPAN, CDMX</div>
     </nav>
 
     <header class="hero">
-        <div class="hero-text">
-            <h1>Sonrisas de Alta Gama</h1>
-            <p>Especialistas en Odontología Láser y Diseño de Sonrisa en Tlalpan</p>
-            <a href="#contacto" style="background: var(--accent); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold;">AGENDAR AHORA</a>
+        <div>
+            <h1>Sonrisas con Tecnología Láser</h1>
+            <p>Especialistas en odontología estética y avanzada. Brindamos salud dental de élite con la máxima comodidad y experiencia.</p>
+            <a href="#contacto" style="background: var(--accent); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);">INICIAR MI CAMBIO</a>
         </div>
     </header>
 
-    <section class="tech-box">
-        <div>
-            <h2>Tecnología de Punta</h2>
-            <p>Utilizamos **Láser Dental de última generación** para tratamientos sin dolor, mayor precisión y recuperaciones ultra rápidas.</p>
-            <ul style="margin-top: 20px; list-style: none;">
-                <li><i class="fas fa-microchip" style="color: var(--accent);"></i> Diagnóstico Digital Avanzado</li>
-                <li><i class="fas fa-magic" style="color: var(--accent);"></i> Diseño de Sonrisa 3D</li>
-                <li><i class="fas fa-hand-holding-medical" style="color: var(--accent);"></i> Tratamientos Mínimamente Invasivos</li>
-            </ul>
+    <section class="tech">
+        <div class="tech-text">
+            <h2>Última Tecnología</h2>
+            <p>Contamos con equipos de <strong>vanguardia tecnológica</strong> para que tus procedimientos sean más rápidos, precisos y, sobre todo, libres de dolor.</p>
+            <div style="margin-top: 30px;">
+                <p><i class="fas fa-microscope" style="color: var(--accent); margin-right: 10px;"></i> Diagnóstico digital 3D</p>
+                <p><i class="fas fa-bolt" style="color: var(--accent); margin-right: 10px;"></i> Odontología Láser avanzada</p>
+                <p><i class="fas fa-magic" style="color: var(--accent); margin-right: 10px;"></i> Diseño de sonrisa personalizado</p>
+            </div>
         </div>
-        <div>
-            <img src="https://lh5.googleusercontent.com/p/AF1QipPzEwA-tH_9T0_v-iYI9M_B9o-z_Z_K_Q-z=w800" alt="Equipo Dental">
+        <div class="tech-img">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" alt="Tecnología Dental Art">
         </div>
     </section>
 
-    <section class="form-section" id="contacto">
-        <div class="form-card">
-            <h2 style="text-align: center; margin-bottom: 20px;">Contacto y Citas</h2>
+    <section class="contact-container" id="contacto">
+        <div>
+            <h2 style="margin-bottom: 20px;">Visítanos</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Jesús Lecuona 49, Miguel Hidalgo 2da Secc, Tlalpan, 14250 Ciudad de México.</p>
+            <p><i class="fas fa-phone"></i> 55 7533 5931</p>
+            <p><i class="fas fa-clock"></i> Lun - Vie: 8:00 AM - 7:30 PM</p>
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.719601363292!2d-99.2064121!3d19.2945112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd8f9d020d2e5b%3A0x673c68383840656a!2sJes%C3%BAs%20Lecuona%2049%2C%20Miguel%20Hidalgo%202da%20Secc%2C%20Tlalpan%2C%2014250%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1700000000000" width="100%" height="300" style="border:0; border-radius:20px;" allowfullscreen=""></iframe>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom: 20px;">Solicita Información</h3>
             <form>
-                <input type="text" placeholder="Nombre completo" required>
-                <input type="tel" placeholder="Tu WhatsApp" required>
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="tel" placeholder="WhatsApp" required>
                 <select>
                     <option>Tratamiento Láser</option>
                     <option>Diseño de Sonrisa</option>
-                    <option>Limpieza y Valoración</option>
+                    <option>Valoración General</option>
                 </select>
-                <textarea rows="4" placeholder="¿Qué necesitas para tu sonrisa?"></textarea>
-                <button type="submit" class="btn-send">SOLICITAR INFORMACIÓN</button>
+                <textarea rows="4" placeholder="¿Cómo podemos ayudarte?"></textarea>
+                <button type="submit" class="btn-submit">ENVIAR MENSAJE</button>
             </form>
         </div>
     </section>
 
-    <div id="chat-widget">
+    <div id="chatbot">
         <div class="chat-header">
             <span><i class="fas fa-robot"></i> Asistente Dental Art</span>
-            <i class="fas fa-times" onclick="toggleChat()" style="cursor: pointer;"></i>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer;"></i>
         </div>
-        <div class="chat-body" id="chat-messages">
-            <div class="msg bot">¡Hola! Bienvenid@ a Dental Art Studio. ¿Cómo puedo ayudarte hoy?</div>
+        <div class="chat-content" id="chat-box">
+            <div class="bot-msg">¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>
         </div>
-        <div class="chat-options">
-            <button class="opt-btn" onclick="chatAnswer('costo')">¿Cuál es el costo de la consulta?</button>
-            <button class="opt-btn" onclick="chatAnswer('tecnologia')">¿Qué tecnología usan?</button>
-            <button class="opt-btn" onclick="chatAnswer('whatsapp')">Hablar con un humano por WhatsApp</button>
+        <div class="chat-footer">
+            <button class="opt" onclick="botReply('costo')">¿Qué costo tiene la valoración?</button>
+            <button class="opt" onclick="botReply('wa')">Tengo más dudas (WhatsApp)</button>
         </div>
     </div>
 
-    <div class="wa-float" onclick="toggleChat()">
+    <div class="wa-btn" onclick="toggleChat()">
         <i class="fab fa-whatsapp"></i>
     </div>
 
-    <footer style="background: var(--primary); color: white; text-align: center; padding: 30px;">
-        <p>Jesús Lecuona 49, Tlalpan, CDMX | 55 7533 5931</p>
+    <footer style="background: var(--primary); color: white; text-align: center; padding: 40px;">
+        <p>© 2026 Dental Art Studio | Tlalpan, Ciudad de México</p>
     </footer>
 
     <script>
         function toggleChat() {
-            const chat = document.getElementById('chat-widget');
+            const chat = document.getElementById('chatbot');
             chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
         }
 
-        function chatAnswer(tipo) {
-            const msgContainer = document.getElementById('chat-messages');
-            let botMsg = "";
+        function botReply(type) {
+            const box = document.getElementById('chat-box');
+            let text = "";
 
-            if(tipo === 'costo') {
-                botMsg = "La consulta de valoración tiene un costo de **$2,000 pesos**. Lo mejor es que si decides realizarte tu tratamiento con nosotros, **ese monto se te descuenta del total**. ¡Es una inversión en tu salud!";
-            } else if (tipo === 'tecnologia') {
-                botMsg = "Contamos con tecnología Láser de vanguardia para que tus procedimientos sean rápidos y sin dolor.";
-            } else if (tipo === 'whatsapp') {
-                botMsg = "Para dudas más específicas, por favor escríbenos directamente. ¡Te atenderemos de inmediato!";
-                setTimeout(() => {
-                    window.open("https://wa.me/525575335931", "_blank");
-                }, 1500);
+            if(type === 'costo') {
+                text = "La consulta de valoración tiene un costo de **$200 pesos**. Lo mejor es que si decides quedarte con nosotros, **¡se te descuentan de tu tratamiento!**";
+            } else {
+                text = "Para cualquier otra duda, escríbenos directamente por WhatsApp. ¡Te atenderemos de inmediato!";
+                setTimeout(() => window.open("https://wa.me/525575335931"), 1500);
             }
 
-            const newMsg = document.createElement('div');
-            newMsg.className = "msg bot";
-            newMsg.innerHTML = botMsg;
-            msgContainer.appendChild(newMsg);
-            msgContainer.scrollTop = msgContainer.scrollHeight;
+            const div = document.createElement('div');
+            div.className = "bot-msg";
+            div.innerText = text;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
         }
     </script>
 
