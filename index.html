@@ -3,174 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Art Studio | Exclusividad en Tlalpan</title>
+    <title>DentalartStudiii | Dr. Víctor Domínguez</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #0077b6;
-            --text-gray: #4a4a4a;
-            --glass: rgba(255, 255, 255, 0.9);
-        }
-
+        :root { --primary: #1a1a1a; --accent: #0077b6; --text-light: #666; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; background: #ffffff; color: var(--primary); }
+        body { font-family: 'Montserrat', sans-serif; color: var(--primary); line-height: 1.6; }
 
-        /* Navbar con Logo de Imagen */
+        /* Navegación */
         nav { 
-            background: var(--glass); backdrop-filter: blur(10px); padding: 15px 8%; 
+            background: rgba(255,255,255,0.95); padding: 15px 5%; 
             display: flex; justify-content: space-between; align-items: center; 
-            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #eee;
+            position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .nav-logo img { height: 50px; width: auto; }
+        .nav-logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; }
 
-        /* Hero Boutique */
+        /* Hero Section */
         .hero { 
-            height: 80vh; 
-            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
-                        url('unnamed.png'); /* Tu foto del consultorio como fondo */
+            height: 70vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('unnamed.png');
             background-size: cover; background-position: center; 
-            display: flex; align-items: center; justify-content: center; text-align: center;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            margin-top: 60px;
         }
-        .hero-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 700px; }
-        .hero-card h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 15px; }
-        .hero-card p { font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+        .hero-content h1 { font-family: 'Playfair Display'; font-size: 3.5rem; margin-bottom: 10px; }
 
-        /* Galería Estructurada con tus Fotos */
-        .gallery-section { padding: 100px 8%; background: #fcfcfc; text-align: center; }
-        .gallery-section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; }
+        /* Galería */
+        .section { padding: 80px 10%; text-align: center; }
+        .grid-fotos { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; margin-top: 40px; 
+        }
+        .grid-fotos img { 
+            width: 100%; height: 300px; object-fit: cover; border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        }
+
+        /* Testimonios */
+        .testimonials { background: #f9f9f9; padding: 80px 10%; }
+        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .test-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; }
+        .test-name { font-weight: 700; margin-top: 15px; display: block; color: var(--accent); }
+
+        /* Información y Mapa */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; text-align: left; }
+        .map-container { width: 100%; height: 400px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-        }
-
-        .photo-card { 
-            background: white; border-radius: 20px; overflow: hidden; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.4s;
-        }
-        .photo-card:hover { transform: translateY(-10px); }
-        .photo-card img { width: 100%; height: 350px; object-fit: cover; }
-        .photo-card-info { padding: 20px; text-align: left; }
-        .photo-card-info h3 { font-size: 1.1rem; color: var(--accent); }
-
-        /* Chatbot Glassmorphism */
-        #chatbot { 
-            position: fixed; bottom: 100px; right: 30px; width: 320px; 
-            background: white; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
-            display: none; flex-direction: column; overflow: hidden; z-index: 2000; border: 1px solid #f0f0f0;
-        }
-        .chat-header { background: var(--primary); color: white; padding: 20px; display: flex; justify-content: space-between; }
-        .chat-body { height: 250px; padding: 20px; overflow-y: auto; background: #fafafa; font-size: 0.9rem; }
-        .msg { background: #eee; padding: 12px; border-radius: 10px; margin-bottom: 10px; }
-        .chat-footer { padding: 15px; display: flex; flex-direction: column; gap: 8px; }
-        .chat-btn { background: var(--accent); color: white; border: none; padding: 12px; border-radius: 10px; cursor: pointer; text-align: left; font-weight: 600; }
-
-        /* Botón WA */
-        .wa-float { 
+        footer { padding: 50px; text-align: center; background: #1a1a1a; color: white; }
+        .wa-btn { 
             position: fixed; bottom: 30px; right: 30px; background: #25d366; 
-            color: white; width: 65px; height: 65px; border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; 
-            font-size: 32px; z-index: 2000; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            color: white; width: 60px; height: 60px; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 1000;
         }
-
-        footer { padding: 60px 8%; text-align: center; background: white; border-top: 1px solid #eee; }
-        .dm-credits { margin-top: 20px; font-size: 0.7rem; font-weight: 800; color: #ccc; letter-spacing: 4px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo">
-            <img src="Captura de pantalla 2026-01-10 202317.png" alt="Dental Art Studio Logo">
-        </div>
-        <div style="font-weight: 700; font-size: 0.8rem; color: var(--accent);">TLALPAN, CDMX</div>
+        <div class="nav-logo">DentalartStudiii</div>
+        <div style="font-size: 0.8rem; font-weight: 600; color: var(--accent);">TLALPAN, CDMX</div>
     </nav>
 
     <header class="hero">
-        <div class="hero-card">
-            <p>Lo más exclusivo para tu sonrisa</p>
-            <h1>Tecnología que transforma.</h1>
+        <div class="hero-content">
+            <h1>Odontología Digital</h1>
+            <p>Precisión y arte para tu sonrisa</p>
         </div>
     </header>
 
-    <section class="gallery-section">
-        <h2>Nuestra Clínica</h2>
-        <div class="gallery-grid">
-            <div class="photo-card">
-                <img src="2024-10-10.webp" alt="Tecnología Dental Art">
-                <div class="photo-card-info">
-                    <h3>Tecnología de Vanguardia</h3>
-                    <p>Contamos con equipos digitales para diagnósticos exactos.</p>
-                </div>
+    <section class="section" id="instalaciones">
+        <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem;">Tecnología y Espacio</h2>
+        <div class="grid-fotos">
+            <img src="unnamed.jpg" alt="Consultorio DentalartStudiii">
+            <img src="2024-10-10.webp" alt="Equipo de Escaneo Digital">
+            <img src="unnamed.webp" alt="Instalaciones Médicas">
+            <img src="unnamed (1).jpg" alt="Recepción y Espera">
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 style="text-align: center; font-family: 'Playfair Display'; margin-bottom: 50px; font-size: 2.5rem;">Nuestros Pacientes</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                <p>"Las instalaciones y su equipo médico me dejaron sorprendido... se hicieron por computadora mis dientes, muchas gracias."</p>
+                <span class="test-name">Paciente Satisfecho</span>
             </div>
-            <div class="photo-card">
-                <img src="unnamed.webp" alt="Consultorio Premium">
-                <div class="photo-card-info">
-                    <h3>Espacios de Lujo</h3>
-                    <p>Diseñados para tu total comodidad y relajación.</p>
-                </div>
+            <div class="test-card">
+                <p>"Excelente atención y profesionalismo. El Dr. Víctor Domínguez realizó un trabajo impecable... el resultado superó mis expectativas."</p>
+                <span class="test-name">Luis Miguel Hernández Castro</span>
             </div>
-            <div class="photo-card">
-                <img src="unnamed (1).jpg" alt="Recepción Dental Art">
-                <div class="photo-card-info">
-                    <h3>Atención Personalizada</h3>
-                    <p>Tu experiencia boutique comienza desde la entrada.</p>
-                </div>
+            <div class="test-card">
+                <p>"Ampliamente. Me gusto mucho el trabajo que me hicieron. Gracias Doctor Victor."</p>
+                <span class="test-name">Testimonio Verificado</span>
             </div>
         </div>
     </section>
 
-    <section style="padding: 100px 8%; text-align: center;">
-        <h2 style="font-family: 'Playfair Display'; margin-bottom: 40px;">Ubicación</h2>
-        <iframe src="http://googleusercontent.com/maps.google.com/46" width="100%" height="450" style="border:0; border-radius:30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05);" allowfullscreen="" loading="lazy"></iframe>
+    <section class="section">
+        <h2 style="font-family: 'Playfair Display';">Ubicación y Horarios</h2>
+        <div class="info-grid">
+            <div>
+                <h3>Dirección</h3>
+                <p>Jesús Lecuona 49, Miguel Hidalgo 2da Secc, Tlalpan,<br>14250 Ciudad de México, CDMX</p>
+                <br>
+                <h3>Horarios</h3>
+                <p>Lunes a Viernes: 8:00 – 19:30<br>Sábado y Domingo: Cerrado</p>
+                <br>
+                <h3>Contacto</h3>
+                <p>Teléfono: +52 55 7533 5931</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/?cid=9995294586753079745&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
     </section>
 
-    <div id="chatbot">
-        <div class="chat-header">
-            <span>Asistente Dental Art</span>
-            <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer"></i>
-        </div>
-        <div class="chat-body" id="chat-content">
-            <div class="msg">¡Hola! Bienvenido a Dental Art Studio. ¿Te gustaría agendar una valoración con lo más exclusivo para tu sonrisa?</div>
-        </div>
-        <div class="chat-footer">
-            <button class="chat-btn" onclick="chatAnsw('precio')">¿Costo de valoración?</button>
-            <button class="chat-btn" onclick="chatAnsw('wa')">Agendar por WhatsApp</button>
-        </div>
-    </div>
-
-    <div class="wa-float" onclick="toggleChat()">
+    <a href="https://wa.me/525575335931" class="wa-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
-    </div>
+    </a>
 
     <footer>
-        <img src="Captura de pantalla 2026-01-10 202317.png" style="height: 40px; margin-bottom: 20px;" alt="Logo Footer">
-        <p>Jesús Lecuona 49, Tlalpan, CDMX.</p>
-        <div class="dm-credits">BY DOMINGUEZ & MUÑOZ</div>
+        <p>© 2024 DentalartStudiii. Todos los derechos reservados.</p>
+        <p style="font-size: 0.6rem; letter-spacing: 3px; margin-top: 10px; opacity: 0.5;">BY DOMINGUEZ & MUÑOZ</p>
     </footer>
 
-    <script>
-        function toggleChat() {
-            const c = document.getElementById('chatbot');
-            c.style.display = (c.style.display === 'flex') ? 'none' : 'flex';
-        }
-        function chatAnsw(t) {
-            const cont = document.getElementById('chat-content');
-            if(t === 'precio') {
-                const d = document.createElement('div');
-                d.className = "msg";
-                d.innerText = "La valoración cuesta $200 pesos. Si inicias tu tratamiento hoy, se te descuenta del total.";
-                cont.appendChild(d);
-            } else {
-                window.open("https://wa.me/525575335931?text=Hola,%20vengo%20de%20la%20web%20y%20quiero%20agendar%20mi%20valoración.", "_blank");
-            }
-            cont.scrollTop = cont.scrollHeight;
-        }
-    </script>
 </body>
 </html>
