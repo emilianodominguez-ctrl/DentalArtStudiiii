@@ -48,7 +48,7 @@
         .rev-card { background: var(--accent); padding: 40px; border-left: 5px solid var(--gold); margin-bottom: 30px; border-radius: 0 10px 10px 0; }
         .stars { color: #ffcc00; margin-bottom: 15px; font-size: 1.3rem; }
 
-        /* UBICACIÓN - AJUSTE DE VISIBILIDAD */
+        /* UBICACIÓN - OPENSTREETMAP (SIN ERRORES DE API) */
         .location { padding: 90px 8%; text-align: center; }
         .location h2 { color: var(--gold); font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 10px; }
         .map-box { border: 2px solid var(--gold); border-radius: 12px; overflow: hidden; height: 500px; margin-top: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
@@ -65,11 +65,9 @@
         .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; background: white; color: #000; align-self: flex-start; }
         .chat-footer { background: white; padding: 15px; }
         .btn-wa-chat { background: #25D366; color: white; border: none; padding: 12px 20px; cursor: pointer; font-weight: bold; width: 100%; border-radius: 25px; text-align: center; text-decoration: none; display: inline-block; transition: 0.3s; }
-        .btn-wa-chat:hover { background: #128C7E; }
 
         /* WHATSAPP FLOAT */
-        .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25D366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 38px; z-index: 2000; cursor: pointer; transition: 0.3s; }
-        .wa-float:hover { transform: scale(1.1); }
+        .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25D366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 38px; z-index: 2000; cursor: pointer; }
 
         footer { padding: 70px 8%; text-align: center; border-top: 1px solid #222; }
     </style>
@@ -90,7 +88,7 @@
 
     <section class="brand-pitch">
         <h2>Ingeniería y Arte Dental</h2>
-        <p>En <strong>DentalArtStudiii</strong>, transformamos sonrisas mediante tecnología digital avanzada. Nuestra clínica boutique ofrece precisión absoluta y estética de alta gama para resultados excepcionales.</p>
+        <p>En <strong>DentalArtStudiii</strong>, transformamos sonrisas mediante tecnología digital avanzada. Nuestra clínica boutique ofrece precisión absoluta y estética de alta gama.</p>
     </section>
 
     <div class="grid">
@@ -102,22 +100,19 @@
 
     <section class="reviews">
         <h2 style="color:var(--gold); text-align:center; margin-bottom:50px; font-family:'Playfair Display'; font-size: 2.5rem;">Experiencias Studiii</h2>
-        
         <div class="rev-card">
             <div class="stars">★★★★★</div>
-            <p>"La mejor clínica en Tlalpan. El scanner 3D evitó que usaran pastas molestas en mi boca, todo fue digital y súper rápido. ¡Altamente recomendados!"</p>
+            <p>"La mejor clínica en Tlalpan. El scanner 3D evitó que usaran pastas molestas, todo fue digital y súper rápido."</p>
             <small style="color:var(--gold); font-weight: bold;">- Mariana Gutiérrez</small>
         </div>
-
         <div class="rev-card">
             <div class="stars">★★★★★</div>
-            <p>"Excelente servicio de nuestros especialistas. Me explicaron cada detalle de mi tratamiento con modelos digitales. El diseño de mi sonrisa quedó increíble."</p>
+            <p>"Excelente servicio de nuestros especialistas. Me explicaron cada detalle de mi tratamiento con modelos digitales."</p>
             <small style="color:var(--gold); font-weight: bold;">- Roberto Casillas</small>
         </div>
-
         <div class="rev-card">
             <div class="stars">★★★★★</div>
-            <p>"Un concepto totalmente diferente a un dentista tradicional. Las instalaciones son de lujo y la tecnología que manejan en DentalArtStudiii es de otro nivel."</p>
+            <p>"Un concepto totalmente diferente a un dentista tradicional. La tecnología es de otro nivel."</p>
             <small style="color:var(--gold); font-weight: bold;">- Ana Paula Sánchez</small>
         </div>
     </section>
@@ -130,9 +125,11 @@
                 width="100%" 
                 height="100%" 
                 frameborder="0" 
-                style="border:0"
-                src="https://www.google.com/maps?q=DentalartStudiii+Jesus+Lecuona+49+Tlalpan&output=embed&z=16" 
-                allowfullscreen>
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-99.2081,19.2810,-99.2012,19.2851&amp;layer=mapnik&amp;marker=19.28303,-99.20465" 
+                style="border: 0">
             </iframe>
         </div>
     </section>
@@ -163,7 +160,7 @@
 
     <footer>
         <img src="Captura de pantalla 2026-01-10 202317.png" alt="Logo">
-        <p style="color:var(--gold); font-weight:700; letter-spacing: 1px;">DentalArtStudiii BY DOMÍNGUEZ & MUÑOZ</p>
+        <p style="color:var(--gold); font-weight:700;">DentalArtStudiii BY DOMÍNGUEZ & MUÑOZ</p>
         <p>© 2026 Todos los derechos reservados.</p>
     </footer>
 
