@@ -13,16 +13,13 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: #fff; line-height: 1.6; overflow-x: hidden; }
 
-        /* NAVBAR - Logo Oscuro con Brillo */
+        /* NAVBAR */
         nav { 
             background: rgba(7, 7, 7, 0.98); padding: 10px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
             position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--gold);
         }
-        .nav-logo img { 
-            height: 85px; 
-            filter: drop-shadow(0px 0px 5px rgba(212, 175, 55, 0.6)); 
-        }
+        .nav-logo img { height: 85px; filter: drop-shadow(0px 0px 5px rgba(212, 175, 55, 0.6)); }
         .nav-city { color: var(--gold); font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; }
 
         /* HERO */
@@ -51,27 +48,44 @@
         .rev-card { background: var(--accent); padding: 40px; border-left: 5px solid var(--gold); margin-bottom: 30px; }
         .stars { color: #ffcc00; margin-bottom: 15px; font-size: 1.3rem; }
 
-        /* UBICACIÓN - CORRECCIÓN INFALIBLE */
+        /* UBICACIÓN */
         .location { padding: 90px 8%; text-align: center; }
         .location h2 { color: var(--gold); font-family: 'Playfair Display'; font-size: 2.5rem; }
-        .map-box { 
-            border: 2px solid var(--gold); border-radius: 12px; overflow: hidden; 
-            height: 500px; margin-top: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
-        }
+        .map-box { border: 2px solid var(--gold); border-radius: 12px; overflow: hidden; height: 500px; margin-top: 40px; }
 
-        /* CHATBOT */
+        /* --- NUEVO CHATBOT ESTILO MENSAJERÍA --- */
         #chatbot { 
-            position: fixed; bottom: 120px; right: 30px; width: 340px; background: #151515; 
-            border: 1px solid var(--gold); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; 
+            position: fixed; bottom: 120px; right: 30px; width: 350px; 
+            background: #f0f0f0; border-radius: 15px; display: none; 
+            flex-direction: column; z-index: 2000; box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            overflow: hidden; font-family: sans-serif;
         }
-        .chat-h { background: var(--gold); color: #000; padding: 20px; font-weight: 800; display: flex; justify-content: space-between; border-radius: 14px 14px 0 0; }
-        .btn-wa { background: var(--gold); color: #000; border: none; padding: 18px; cursor: pointer; font-weight: 800; width: 85%; margin: 0 auto 25px; border-radius: 6px; text-align: center; text-decoration: none; display: block; }
+        .chat-header { 
+            background: #075E54; color: white; padding: 15px; 
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .chat-header-info { display: flex; align-items: center; gap: 10px; }
+        .chat-header-info i { font-size: 30px; color: #fff; }
+        .chat-body { padding: 15px; background: #e5ddd5; display: flex; flex-direction: column; gap: 10px; height: 250px; overflow-y: auto; }
+        
+        /* Burbujas de Chat */
+        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; position: relative; }
+        .msg-in { background: white; color: #000; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .msg-time { font-size: 0.7rem; color: #999; display: block; text-align: right; margin-top: 5px; }
 
-        /* WHATSAPP FLOAT */
+        .chat-footer { background: white; padding: 15px; text-align: center; }
+        .btn-wa-chat { 
+            background: #25D366; color: white; border: none; padding: 12px 20px; 
+            cursor: pointer; font-weight: bold; width: 100%; border-radius: 25px; 
+            text-align: center; text-decoration: none; display: inline-block;
+        }
+
+        /* BOTÓN FLOTANTE */
         .wa-float { 
-            position: fixed; bottom: 35px; right: 35px; background: var(--gold); color: #000; 
-            width: 75px; height: 75px; border-radius: 50%; display: flex; justify-content: center; 
-            align-items: center; font-size: 40px; z-index: 2000; cursor: pointer; 
+            position: fixed; bottom: 35px; right: 35px; background: #25D366; color: #fff; 
+            width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; 
+            align-items: center; font-size: 38px; z-index: 2000; cursor: pointer; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         footer { padding: 70px 8%; text-align: center; border-top: 1px solid #222; }
@@ -94,7 +108,7 @@
 
     <section class="brand-pitch">
         <h2>Ingeniería y Arte Dental</h2>
-        <p>En <strong>DentalArtStudiii</strong>, transformamos sonrisas mediante tecnología digital avanzada. Nuestra clínica boutique ofrece precisión absoluta y estética de alta gama.</p>
+        <p>En <strong>DentalArtStudiii</strong>, transformamos sonrisas mediante tecnología digital avanzada. Clínica boutique con precisión absoluta.</p>
     </section>
 
     <div class="grid">
@@ -108,30 +122,46 @@
         <h2 style="color:var(--gold); text-align:center; margin-bottom:50px;">Opiniones Studiii</h2>
         <div class="rev-card">
             <div class="stars">★★★★★</div>
-            <p>"No me tomaron molde, fue con una cámara digital y diseñaron mis dientes por computadora en <strong>DentalArtStudiii</strong>. Increíble."</p>
-            <span style="display:block; margin-top:20px; font-weight:700; color:var(--gold);">- PACIENTE SATISFECHO</span>
+            <p>"No me tomaron molde, fue con una cámara digital y diseñaron mis dientes por computadora en <strong>DentalArtStudiii</strong>."</p>
         </div>
     </section>
 
     <section class="location">
         <h2>Ubicación Exacta</h2>
-        <p><i class="fas fa-map-marker-alt" style="color:var(--gold);"></i> Jesús Lecuona 49, Miguel Hidalgo 2da Secc, Tlalpan, 14250 CDMX.</p>
+        <p><i class="fas fa-map-marker-alt" style="color:var(--gold);"></i> Jesús Lecuona 49, Tlalpan, 14250 CDMX.</p>
         <div class="map-box">
-            <iframe 
-                width="100%" 
-                height="100%" 
-                frameborder="0" 
-                style="border:0" 
-                src="https://maps.google.com/maps?q=Jesús%20Lecuona%2049,%20Miguel%20Hidalgo%202da%20Secc,%20Tlalpan,%2014250%20Ciudad%20de%20México&t=&z=17&ie=UTF8&iwloc=&output=embed" 
-                allowfullscreen>
-            </iframe>
+            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=REEMPLAZA_CON_TU_KEY_O_USA_IFRAME_ANTERIOR&q=Jesus+Lecuona+49+Tlalpan+CDMX" allowfullscreen></iframe>
         </div>
     </section>
 
     <div id="chatbot">
-        <div class="chat-h"><span>STUDIII CONCIERGE</span><i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer"></i></div>
-        <div class="chat-b"><p>Hola. ¿Deseas agendar tu valoración premium de <strong>$200</strong> con el Dr. Víctor Domínguez?</p></div>
-        <a href="https://wa.me/525575335931?text=Hola,%20deseo%20agendar%20mi%20valoración%20en%20DentalArtStudiii" class="btn-wa" target="_blank">AGENDAR POR WHATSAPP</a>
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <strong style="display:block; font-size:0.9rem;">DentalArtStudiii</strong>
+                    <small style="font-size:0.7rem; opacity:0.8;">En línea ahora</small>
+                </div>
+            </div>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer; font-size: 1.2rem;"></i>
+        </div>
+        
+        <div class="chat-body">
+            <div class="msg msg-in">
+                ¡Hola! 👋 Bienvenido a DentalArtStudiii.
+                <span class="msg-time">20:00</span>
+            </div>
+            <div class="msg msg-in">
+                ¿Te gustaría agendar tu valoración premium por solo <strong>$200</strong> con el Dr. Víctor Domínguez?
+                <span class="msg-time">20:00</span>
+            </div>
+        </div>
+
+        <div class="chat-footer">
+            <a href="https://wa.me/525575335931?text=Hola,%20deseo%20agendar%20mi%20valoración%20en%20DentalArtStudiii" class="btn-wa-chat" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+            </a>
+        </div>
     </div>
 
     <div class="wa-float" onclick="toggleChat()"><i class="fab fa-whatsapp"></i></div>
