@@ -45,51 +45,33 @@
 
         /* REVIEWS */
         .reviews { padding: 90px 8%; background: #0a0a0a; }
-        .rev-card { background: var(--accent); padding: 40px; border-left: 5px solid var(--gold); margin-bottom: 30px; }
+        .rev-card { background: var(--accent); padding: 40px; border-left: 5px solid var(--gold); margin-bottom: 30px; border-radius: 0 10px 10px 0; }
         .stars { color: #ffcc00; margin-bottom: 15px; font-size: 1.3rem; }
 
-        /* UBICACIÓN */
+        /* UBICACIÓN - AJUSTE DE VISIBILIDAD */
         .location { padding: 90px 8%; text-align: center; }
-        .location h2 { color: var(--gold); font-family: 'Playfair Display'; font-size: 2.5rem; }
-        .map-box { border: 2px solid var(--gold); border-radius: 12px; overflow: hidden; height: 500px; margin-top: 40px; }
+        .location h2 { color: var(--gold); font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 10px; }
+        .map-box { border: 2px solid var(--gold); border-radius: 12px; overflow: hidden; height: 500px; margin-top: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
 
-        /* --- NUEVO CHATBOT ESTILO MENSAJERÍA --- */
+        /* CHATBOT MENSAJERÍA */
         #chatbot { 
             position: fixed; bottom: 120px; right: 30px; width: 350px; 
             background: #f0f0f0; border-radius: 15px; display: none; 
             flex-direction: column; z-index: 2000; box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-            overflow: hidden; font-family: sans-serif;
+            overflow: hidden;
         }
-        .chat-header { 
-            background: #075E54; color: white; padding: 15px; 
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .chat-header-info { display: flex; align-items: center; gap: 10px; }
-        .chat-header-info i { font-size: 30px; color: #fff; }
+        .chat-header { background: #075E54; color: white; padding: 15px; display: flex; align-items: center; justify-content: space-between; }
         .chat-body { padding: 15px; background: #e5ddd5; display: flex; flex-direction: column; gap: 10px; height: 250px; overflow-y: auto; }
-        
-        /* Burbujas de Chat */
-        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; position: relative; }
-        .msg-in { background: white; color: #000; align-self: flex-start; border-bottom-left-radius: 2px; }
-        .msg-time { font-size: 0.7rem; color: #999; display: block; text-align: right; margin-top: 5px; }
+        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; background: white; color: #000; align-self: flex-start; }
+        .chat-footer { background: white; padding: 15px; }
+        .btn-wa-chat { background: #25D366; color: white; border: none; padding: 12px 20px; cursor: pointer; font-weight: bold; width: 100%; border-radius: 25px; text-align: center; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-wa-chat:hover { background: #128C7E; }
 
-        .chat-footer { background: white; padding: 15px; text-align: center; }
-        .btn-wa-chat { 
-            background: #25D366; color: white; border: none; padding: 12px 20px; 
-            cursor: pointer; font-weight: bold; width: 100%; border-radius: 25px; 
-            text-align: center; text-decoration: none; display: inline-block;
-        }
-
-        /* BOTÓN FLOTANTE */
-        .wa-float { 
-            position: fixed; bottom: 35px; right: 35px; background: #25D366; color: #fff; 
-            width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; 
-            align-items: center; font-size: 38px; z-index: 2000; cursor: pointer; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+        /* WHATSAPP FLOAT */
+        .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25D366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 38px; z-index: 2000; cursor: pointer; transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.1); }
 
         footer { padding: 70px 8%; text-align: center; border-top: 1px solid #222; }
-        footer img { height: 80px; margin-bottom: 25px; filter: drop-shadow(0px 0px 3px var(--gold)); }
     </style>
 </head>
 <body>
@@ -108,7 +90,7 @@
 
     <section class="brand-pitch">
         <h2>Ingeniería y Arte Dental</h2>
-        <p>En <strong>DentalArtStudiii</strong>, transformamos sonrisas mediante tecnología digital avanzada. Clínica boutique con precisión absoluta.</p>
+        <p>En <strong>DentalArtStudiii</strong>, transformamos sonrisas mediante tecnología digital avanzada. Nuestra clínica boutique ofrece precisión absoluta y estética de alta gama para resultados excepcionales.</p>
     </section>
 
     <div class="grid">
@@ -119,47 +101,60 @@
     </div>
 
     <section class="reviews">
-        <h2 style="color:var(--gold); text-align:center; margin-bottom:50px;">Opiniones Studiii</h2>
+        <h2 style="color:var(--gold); text-align:center; margin-bottom:50px; font-family:'Playfair Display'; font-size: 2.5rem;">Experiencias Studiii</h2>
+        
         <div class="rev-card">
             <div class="stars">★★★★★</div>
-            <p>"No me tomaron molde, fue con una cámara digital y diseñaron mis dientes por computadora en <strong>DentalArtStudiii</strong>."</p>
+            <p>"La mejor clínica en Tlalpan. El scanner 3D evitó que usaran pastas molestas en mi boca, todo fue digital y súper rápido. ¡Altamente recomendados!"</p>
+            <small style="color:var(--gold); font-weight: bold;">- Mariana Gutiérrez</small>
+        </div>
+
+        <div class="rev-card">
+            <div class="stars">★★★★★</div>
+            <p>"Excelente servicio de nuestros especialistas. Me explicaron cada detalle de mi tratamiento con modelos digitales. El diseño de mi sonrisa quedó increíble."</p>
+            <small style="color:var(--gold); font-weight: bold;">- Roberto Casillas</small>
+        </div>
+
+        <div class="rev-card">
+            <div class="stars">★★★★★</div>
+            <p>"Un concepto totalmente diferente a un dentista tradicional. Las instalaciones son de lujo y la tecnología que manejan en DentalArtStudiii es de otro nivel."</p>
+            <small style="color:var(--gold); font-weight: bold;">- Ana Paula Sánchez</small>
         </div>
     </section>
 
     <section class="location">
-        <h2>Ubicación Exacta</h2>
-        <p><i class="fas fa-map-marker-alt" style="color:var(--gold);"></i> Jesús Lecuona 49, Tlalpan, 14250 CDMX.</p>
+        <h2>Ubicación</h2>
+        <p><i class="fas fa-map-marker-alt" style="color:var(--gold);"></i> Jesús Lecuona 49, Miguel Hidalgo 2da Secc, Tlalpan, 14250 CDMX.</p>
         <div class="map-box">
-            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=REEMPLAZA_CON_TU_KEY_O_USA_IFRAME_ANTERIOR&q=Jesus+Lecuona+49+Tlalpan+CDMX" allowfullscreen></iframe>
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                style="border:0"
+                src="https://www.google.com/maps?q=DentalartStudiii+Jesus+Lecuona+49+Tlalpan&output=embed&z=16" 
+                allowfullscreen>
+            </iframe>
         </div>
     </section>
 
     <div id="chatbot">
         <div class="chat-header">
-            <div class="chat-header-info">
-                <i class="fas fa-user-circle"></i>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <i class="fas fa-user-md" style="font-size:1.5rem;"></i>
                 <div>
-                    <strong style="display:block; font-size:0.9rem;">DentalArtStudiii</strong>
-                    <small style="font-size:0.7rem; opacity:0.8;">En línea ahora</small>
+                    <strong style="display:block; font-size:0.9rem;">Concierge Studiii</strong>
+                    <small style="font-size:0.7rem; opacity:0.8;">En línea</small>
                 </div>
             </div>
-            <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer; font-size: 1.2rem;"></i>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer;"></i>
         </div>
-        
         <div class="chat-body">
-            <div class="msg msg-in">
-                ¡Hola! 👋 Bienvenido a DentalArtStudiii.
-                <span class="msg-time">20:00</span>
-            </div>
-            <div class="msg msg-in">
-                ¿Te gustaría agendar tu valoración premium por solo <strong>$200</strong> con el Dr. Víctor Domínguez?
-                <span class="msg-time">20:00</span>
-            </div>
+            <div class="msg">¡Hola! 👋 Bienvenido a DentalArtStudiii.</div>
+            <div class="msg">¿Te gustaría agendar tu valoración premium ($200) con <strong>nuestros especialistas</strong>?</div>
         </div>
-
         <div class="chat-footer">
-            <a href="https://wa.me/525575335931?text=Hola,%20deseo%20agendar%20mi%20valoración%20en%20DentalArtStudiii" class="btn-wa-chat" target="_blank">
-                <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+            <a href="https://wa.me/525575335931?text=Hola,%20deseo%20agendar%20mi%20valoración%20con%20sus%20especialistas" class="btn-wa-chat" target="_blank">
+                <i class="fab fa-whatsapp"></i> Agendar Valoración
             </a>
         </div>
     </div>
@@ -168,7 +163,7 @@
 
     <footer>
         <img src="Captura de pantalla 2026-01-10 202317.png" alt="Logo">
-        <p style="color:var(--gold); font-weight:700;">DentalArtStudiii BY DOMÍNGUEZ & MUÑOZ</p>
+        <p style="color:var(--gold); font-weight:700; letter-spacing: 1px;">DentalArtStudiii BY DOMÍNGUEZ & MUÑOZ</p>
         <p>© 2026 Todos los derechos reservados.</p>
     </footer>
 
